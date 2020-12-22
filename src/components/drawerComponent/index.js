@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { DrawerContentScrollView, DrawerItem, } from '@react-navigation/drawer';
 import { FontAwesome, Entypo, MaterialIcons } from '@expo/vector-icons';
 import { Dh, Dw } from '../../common';
@@ -49,6 +49,11 @@ export default function DrawerComponent(props) {
                     />
                 </View>
             </DrawerContentScrollView>
+            <View style={styles.column}>
+                <TouchableOpacity style={styles.btnLogout} onPress={() => props.navigation.navigate('Login')}>
+                    <Text style={{ color: '#FFF' }}>Sair</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
@@ -70,7 +75,7 @@ const styles = StyleSheet.create({
         borderRadius: Dh * 0.1,
     },
     details: {
-        height:60,
+        height: 60,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-around',
@@ -85,9 +90,22 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
+    column: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: 30,
+    },
     icon: {
         fontSize: 24,
         color: '#AAA',
         marginLeft: 10,
-    }
+    },
+    btnLogout: {
+        height: 50,
+        width: 200,
+        borderRadius: 7,
+        backgroundColor: '#C55',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
